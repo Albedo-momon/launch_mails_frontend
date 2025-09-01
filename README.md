@@ -1,73 +1,204 @@
-# Welcome to your Lovable project
+# LaunchMails Frontend
 
-## Project info
+A modern, responsive frontend application for LaunchMails - a simple email API service for product launches and transactional emails.
 
-**URL**: https://lovable.dev/projects/a4642e87-14b1-4cb8-9024-7f66a7143e1e
+## 🚀 Features
 
-## How can I edit this code?
+- **Authentication**: Google sign-in integration using Clerk
+- **Dashboard**: Domain setup, API integration, and email logs management
+- **API Documentation**: Comprehensive API docs with interactive examples
+- **Coming Soon**: Feature preview page for upcoming functionality
+- **Responsive Design**: Mobile-first design with Tailwind CSS
+- **Modern UI**: Built with Shadcn/UI components for a professional look
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: Shadcn/UI
+- **Authentication**: Clerk
+- **Routing**: React Router
+- **State Management**: TanStack Query
+- **Icons**: Lucide React
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a4642e87-14b1-4cb8-9024-7f66a7143e1e) and start prompting.
+## 📦 Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+1. **Clone the repository**
 
-**Use your preferred IDE**
+   ```bash
+   git clone <repository-url>
+   cd launch_mails
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+2. **Install dependencies**
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+   ```bash
+   npm install
+   ```
 
-Follow these steps:
+3. **Environment Setup**
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+   - Copy `.env.example` to `.env`
+   - Add your Clerk publishable key:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+   ```env
+   VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key_here
+   VITE_API_BASE_URL=http://localhost:4000/api
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Start the development server**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## 📜 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
+
+## 🏗️ Project Structure
+
+```
+launch_mails/
+├── public/                 # Static assets
+│   ├── logo.svg           # Application logo
+│   ├── favicon.ico        # Favicon
+│   └── robots.txt         # SEO robots file
+├── src/
+│   ├── components/        # Reusable UI components
+│   │   ├── ui/           # Shadcn/UI components
+│   │   ├── Header.tsx    # Navigation header
+│   │   ├── Footer.tsx    # Site footer
+│   │   ├── DomainSetup.tsx
+│   │   ├── APIIntegration.tsx
+│   │   └── Logs.tsx
+│   ├── pages/            # Page components
+│   │   ├── Index.tsx     # Landing page
+│   │   ├── Dashboard.tsx # Main dashboard
+│   │   ├── ApiDocs.tsx   # API documentation
+│   │   ├── ComingSoon.tsx
+│   │   └── NotFound.tsx
+│   ├── lib/              # Utility functions
+│   ├── hooks/            # Custom React hooks
+│   ├── App.tsx           # Main app component
+│   └── main.tsx          # Application entry point
+├── .env.example          # Environment variables template
+├── .gitignore           # Git ignore rules
+├── package.json         # Dependencies and scripts
+├── tailwind.config.ts   # Tailwind CSS configuration
+├── tsconfig.json        # TypeScript configuration
+└── vite.config.ts       # Vite configuration
 ```
 
-**Edit a file directly in GitHub**
+## 🔐 Authentication
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This application uses [Clerk](https://clerk.com) for authentication with Google OAuth integration.
 
-**Use GitHub Codespaces**
+### Setup Clerk Authentication
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. Create a Clerk account at [clerk.com](https://clerk.com)
+2. Create a new application
+3. Configure Google OAuth provider
+4. Copy your publishable key to `.env` file
+5. See `CLERK_SETUP.md` for detailed setup instructions
 
-## What technologies are used for this project?
+### Development Mode
 
-This project is built with:
+For development purposes, you can enable `DEV_MODE` in the following files:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `src/App.tsx`
+- `src/components/Header.tsx`
+- `src/pages/Index.tsx`
 
-## How can I deploy this project?
+Set `DEV_MODE = true` to bypass Clerk authentication during development.
 
-Simply open [Lovable](https://lovable.dev/projects/a4642e87-14b1-4cb8-9024-7f66a7143e1e) and click on Share -> Publish.
+## 🎨 UI Components
 
-## Can I connect a custom domain to my Lovable project?
+The application uses [Shadcn/UI](https://ui.shadcn.com) components for a consistent and modern design:
 
-Yes, you can!
+- **Button**: Various button styles and sizes
+- **Card**: Content containers with shadows
+- **Input**: Form input fields
+- **Badge**: Status indicators
+- **Label**: Form labels
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📱 Responsive Design
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The application is fully responsive and optimized for:
+
+- Desktop (1024px+)
+- Tablet (768px - 1023px)
+- Mobile (320px - 767px)
+
+## 🔗 API Integration
+
+The frontend communicates with the LaunchMails backend API:
+
+- **Base URL**: `http://localhost:4000/api`
+- **Endpoints**:
+  - `POST /send-email` - Send transactional emails
+  - `POST /verify-domain` - Verify domain ownership
+  - `GET /logs` - Retrieve email logs
+
+## 🚀 Deployment
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+### Deploy to Vercel
+
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run: `vercel`
+3. Follow the prompts
+
+### Deploy to Netlify
+
+1. Build the project: `npm run build`
+2. Upload the `dist/` folder to Netlify
+3. Configure environment variables in Netlify dashboard
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+If you encounter any issues or have questions:
+
+1. Check the [Issues](https://github.com/your-repo/launch_mails/issues) page
+2. Create a new issue with detailed information
+3. Contact the development team
+
+## 🔄 Version History
+
+- **v1.0.0** - Initial release with core features
+  - Authentication with Clerk
+  - Dashboard with domain setup and API integration
+  - API documentation
+  - Coming soon page
+  - Responsive design
+
+---
+
+Built with ❤️ using React, TypeScript, and Tailwind CSS
