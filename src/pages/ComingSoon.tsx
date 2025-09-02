@@ -86,10 +86,10 @@ const ComingSoon = () => {
                                         <div className="flex items-center justify-between mb-2">
                                             <h3 className="text-lg font-semibold">{feature.title}</h3>
                                             <span className={`text-xs px-2 py-1 rounded-full ${feature.status === 'Coming Soon'
-                                                    ? 'bg-blue-100 text-blue-800'
-                                                    : feature.status === 'In Development'
-                                                        ? 'bg-yellow-100 text-yellow-800'
-                                                        : 'bg-gray-100 text-gray-800'
+                                                ? 'bg-blue-100 text-blue-800'
+                                                : feature.status === 'In Development'
+                                                    ? 'bg-yellow-100 text-yellow-800'
+                                                    : 'bg-gray-100 text-gray-800'
                                                 }`}>
                                                 {feature.status}
                                             </span>
@@ -112,29 +112,36 @@ const ComingSoon = () => {
                             <div className="flex items-center space-x-4">
                                 <div className="w-4 h-4 bg-green-500 rounded-full"></div>
                                 <div>
-                                    <h3 className="font-semibold">Q4 2024 - Core Features</h3>
+                                    <h3 className="font-semibold">Q3 2025 – Core Features</h3>
                                     <p className="text-muted-foreground">Email sending, domain verification, and basic analytics</p>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-4">
                                 <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
                                 <div>
-                                    <h3 className="font-semibold">Q1 2025 - Campaign Management</h3>
+                                    <h3 className="font-semibold">Q4 2025 – Campaign Management</h3>
                                     <p className="text-muted-foreground">Email campaigns, templates, and automation workflows</p>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-4">
                                 <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
                                 <div>
-                                    <h3 className="font-semibold">Q2 2025 - Advanced Analytics</h3>
-                                    <p className="text-muted-foreground">Detailed reporting, A/B testing, and performance insights</p>
+                                    <h3 className="font-semibold">Q1 2026 – Advanced Analytics</h3>
+                                    <p className="text-muted-foreground">Reporting, A/B testing, performance insights</p>
+                                </div>
+                            </div>
+                            <div className="flex items-center space-x-4">
+                                <div className="w-4 h-4 bg-purple-500 rounded-full"></div>
+                                <div>
+                                    <h3 className="font-semibold">Q2 2026 – Team Features</h3>
+                                    <p className="text-muted-foreground">Collaboration tools, user management, enterprise features</p>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-4">
                                 <div className="w-4 h-4 bg-gray-300 rounded-full"></div>
                                 <div>
-                                    <h3 className="font-semibold">Q3 2025 - Team Features</h3>
-                                    <p className="text-muted-foreground">Collaboration tools, user management, and enterprise features</p>
+                                    <h3 className="font-semibold">Q3 2026 – Future Features</h3>
+                                    <p className="text-muted-foreground">AI-powered insights, advanced integrations, and more</p>
                                 </div>
                             </div>
                         </div>

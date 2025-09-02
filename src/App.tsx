@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
-import Dashboard from "./pages/Dashboard";
 import ApiDocs from "./pages/ApiDocs";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
@@ -22,7 +21,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/api-docs" element={<ApiDocs />} />
             <Route path="/coming-soon" element={<ComingSoon />} />
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

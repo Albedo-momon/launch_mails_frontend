@@ -59,12 +59,6 @@ const Header = () => {
                         >
                             API Docs
                         </Link>
-                        <Link
-                            to="/dashboard"
-                            className={getNavLinkClasses("/dashboard")}
-                        >
-                            Dashboard
-                        </Link>
                     </nav>
 
                     {/* Desktop Auth */}
@@ -110,13 +104,6 @@ const Header = () => {
                                 onClick={toggleMenu}
                             >
                                 API Docs
-                            </Link>
-                            <Link
-                                to="/dashboard"
-                                className={getNavLinkClasses("/dashboard")}
-                                onClick={toggleMenu}
-                            >
-                                Dashboard
                             </Link>
                             <div className="flex flex-col space-y-2 pt-4">
                                 <Button

@@ -252,8 +252,8 @@ const ApiDocs = () => {
 
                     <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         {/* Free Tier Card */}
-                        <Card className="group hover:shadow-lg transition-all duration-300 hover:bg-blue-50/50 border-2 hover:border-blue-200">
-                            <CardHeader className="text-center pb-4">
+                        <Card className="group hover:shadow-lg transition-all duration-300 hover:bg-blue-50/50 border-2 hover:border-blue-200 h-full flex flex-col">
+                            <CardHeader className="text-center pb-4 pt-6">
                                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
                                     <Mail className="h-6 w-6 text-blue-600" />
                                 </div>
@@ -262,8 +262,8 @@ const ApiDocs = () => {
                                     Perfect for getting started with email automation
                                 </p>
                             </CardHeader>
-                            <CardContent className="space-y-4">
-                                <div className="space-y-3">
+                            <CardContent className="space-y-4 flex-1 flex flex-col">
+                                <div className="space-y-3 flex-1">
                                     <div className="flex items-center space-x-3">
                                         <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
                                             <CheckCircle className="h-3 w-3 text-green-600" />
@@ -289,7 +289,7 @@ const ApiDocs = () => {
                                         <span className="text-sm font-medium">Email logs & analytics</span>
                                     </div>
                                 </div>
-                                <div className="pt-4 border-t">
+                                <div className="pt-4 border-t mt-auto">
                                     <div className="text-center">
                                         <span className="text-3xl font-bold text-blue-600">$0</span>
                                         <span className="text-muted-foreground">/month</span>
@@ -299,7 +299,7 @@ const ApiDocs = () => {
                         </Card>
 
                         {/* Pro Tier Card */}
-                        <Card className="group hover:shadow-lg transition-all duration-300 hover:bg-blue-50/50 border-2 border-blue-200 hover:border-blue-300 relative">
+                        <Card className="group hover:shadow-lg transition-all duration-300 hover:bg-blue-50/50 border-2 border-blue-200 hover:border-blue-300 relative h-full flex flex-col">
                             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                                 <Badge className="bg-blue-600 text-white px-4 py-1">
                                     <Star className="h-3 w-3 mr-1" />
@@ -315,8 +315,8 @@ const ApiDocs = () => {
                                     For growing businesses and high-volume email needs
                                 </p>
                             </CardHeader>
-                            <CardContent className="space-y-4">
-                                <div className="space-y-3">
+                            <CardContent className="space-y-4 flex-1 flex flex-col">
+                                <div className="space-y-3 flex-1">
                                     <div className="flex items-center space-x-3">
                                         <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
                                             <CheckCircle className="h-3 w-3 text-green-600" />
@@ -348,7 +348,7 @@ const ApiDocs = () => {
                                         <span className="text-sm font-medium">API rate limit increases</span>
                                     </div>
                                 </div>
-                                <div className="pt-4 border-t">
+                                <div className="pt-4 border-t mt-auto">
                                     <div className="text-center">
                                         <span className="text-3xl font-bold text-blue-600">$29</span>
                                         <span className="text-muted-foreground">/month</span>
