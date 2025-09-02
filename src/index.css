@@ -37,10 +37,18 @@ All colors MUST be HSL.
     --input: 215 28% 88%;
     --ring: 217 91% 60%;
 
-    --hero-gradient: linear-gradient(135deg, hsl(217 91% 60%), hsl(220 91% 54%));
-    --feature-gradient: linear-gradient(135deg, hsl(217 91% 95%), hsl(220 28% 98%));
+    --hero-gradient: linear-gradient(
+      135deg,
+      hsl(217 91% 60%),
+      hsl(220 91% 54%)
+    );
+    --feature-gradient: linear-gradient(
+      135deg,
+      hsl(217 91% 95%),
+      hsl(220 28% 98%)
+    );
     --glass-bg: hsla(0, 0%, 100%, 0.8);
-    
+
     --shadow-soft: 0 2px 8px -2px hsl(217 91% 60% / 0.08);
     --shadow-medium: 0 8px 32px -8px hsl(217 91% 60% / 0.12);
     --shadow-strong: 0 16px 64px -16px hsl(217 91% 60% / 0.16);
@@ -94,8 +102,16 @@ All colors MUST be HSL.
     --input: 215 28% 15%;
     --ring: 217 91% 60%;
 
-    --hero-gradient: linear-gradient(135deg, hsl(217 91% 60%), hsl(220 91% 54%));
-    --feature-gradient: linear-gradient(135deg, hsl(215 28% 15%), hsl(215 28% 18%));
+    --hero-gradient: linear-gradient(
+      135deg,
+      hsl(217 91% 60%),
+      hsl(220 91% 54%)
+    );
+    --feature-gradient: linear-gradient(
+      135deg,
+      hsl(215 28% 15%),
+      hsl(215 28% 18%)
+    );
     --glass-bg: hsla(215, 28%, 11%, 0.8);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -115,5 +131,60 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Modal animations and positioning */
+@layer utilities {
+  .modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    overflow: hidden;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 28rem;
+    margin: 1rem;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    background-color: white;
+    border: none;
+  }
+
+  .modal-enter {
+    animation: modalEnter 0.3s ease-out;
+  }
+
+  @keyframes modalEnter {
+    0% {
+      opacity: 0;
+      transform: scale(0.95) translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
   }
 }

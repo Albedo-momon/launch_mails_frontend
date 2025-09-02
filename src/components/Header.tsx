@@ -2,24 +2,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Mail, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useUser, SignInButton, SignOutButton } from "@clerk/clerk-react";
-
-// Development mode - set to true to bypass Clerk authentication
-const DEV_MODE = false;
+import ComingSoonModal from "./ComingSoonModal";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { isSignedIn, user } = useUser();
+    const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
     const location = useLocation();
-
-    // Mock user for development mode
-    const mockUser = {
-        firstName: "Dev User",
-        emailAddresses: [{ emailAddress: "dev@example.com" }]
-    };
-
-    const isSignedInDev = DEV_MODE ? true : isSignedIn;
-    const currentUser = DEV_MODE ? mockUser : user;
 
     // Helper function to check if a route is active
     const isActiveRoute = (path: string) => {
@@ -71,42 +59,22 @@ const Header = () => {
                         >
                             API Docs
                         </Link>
-                        {isSignedInDev && (
-                            <Link
-                                to="/dashboard"
-                                className={getNavLinkClasses("/dashboard")}
-                            >
-                                Dashboard
-                            </Link>
-                        )}
+                        <Link
+                            to="/dashboard"
+                            className={getNavLinkClasses("/dashboard")}
+                        >
+                            Dashboard
+                        </Link>
                     </nav>
 
                     {/* Desktop Auth */}
                     <div className="hidden md:flex items-center space-x-4">
-                        {isSignedInDev ? (
-                            <div className="flex items-center space-x-4">
-                                <span className="text-sm text-muted-foreground">
-                                    Welcome, {currentUser?.firstName || currentUser?.emailAddresses[0]?.emailAddress}
-                                </span>
-                                {DEV_MODE ? (
-                                    <Button variant="outline" size="sm" disabled>
-                                        Sign Out (Dev Mode)
-                                    </Button>
-                                ) : (
-                                    <SignOutButton>
-                                        <Button variant="outline" size="sm">
-                                            Sign Out
-                                        </Button>
-                                    </SignOutButton>
-                                )}
-                            </div>
-                        ) : (
-                            <SignInButton mode="modal">
-                                <Button size="sm">
-                                    Sign In
-                                </Button>
-                            </SignInButton>
-                        )}
+                        <Button
+                            size="sm"
+                            onClick={() => setIsComingSoonOpen(true)}
+                        >
+                            Sign In
+                        </Button>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -143,45 +111,35 @@ const Header = () => {
                             >
                                 API Docs
                             </Link>
-                            {isSignedInDev && (
-                                <Link
-                                    to="/dashboard"
-                                    className={getNavLinkClasses("/dashboard")}
-                                    onClick={toggleMenu}
-                                >
-                                    Dashboard
-                                </Link>
-                            )}
+                            <Link
+                                to="/dashboard"
+                                className={getNavLinkClasses("/dashboard")}
+                                onClick={toggleMenu}
+                            >
+                                Dashboard
+                            </Link>
                             <div className="flex flex-col space-y-2 pt-4">
-                                {isSignedInDev ? (
-                                    <div className="flex flex-col space-y-2">
-                                        <span className="text-sm text-muted-foreground">
-                                            Welcome, {currentUser?.firstName || currentUser?.emailAddresses[0]?.emailAddress}
-                                        </span>
-                                        {DEV_MODE ? (
-                                            <Button variant="outline" size="sm" className="w-full" disabled>
-                                                Sign Out (Dev Mode)
-                                            </Button>
-                                        ) : (
-                                            <SignOutButton>
-                                                <Button variant="outline" size="sm" className="w-full">
-                                                    Sign Out
-                                                </Button>
-                                            </SignOutButton>
-                                        )}
-                                    </div>
-                                ) : (
-                                    <SignInButton mode="modal">
-                                        <Button size="sm" className="w-full">
-                                            Sign In
-                                        </Button>
-                                    </SignInButton>
-                                )}
+                                <Button
+                                    size="sm"
+                                    className="w-full"
+                                    onClick={() => {
+                                        setIsComingSoonOpen(true);
+                                        toggleMenu();
+                                    }}
+                                >
+                                    Sign In
+                                </Button>
                             </div>
                         </nav>
                     </div>
                 )}
             </div>
+
+            {/* Coming Soon Modal */}
+            <ComingSoonModal
+                isOpen={isComingSoonOpen}
+                onClose={() => setIsComingSoonOpen(false)}
+            />
         </header>
     );
 };

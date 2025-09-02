@@ -2,14 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Mail, Zap, Shield, ArrowRight, Code, Rocket } from "lucide-react";
-import { useUser, SignInButton } from "@clerk/clerk-react";
-
-// Development mode - set to true to bypass Clerk authentication
-const DEV_MODE = false;
+import { useState } from "react";
+import ComingSoonModal from "@/components/ComingSoonModal";
 
 const Index = () => {
-  const { isSignedIn } = useUser();
-  const isSignedInDev = DEV_MODE ? true : isSignedIn;
+  const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -26,18 +23,13 @@ const Index = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            {isSignedInDev ? (
-              <Button size="lg" asChild>
-                <Link to="/dashboard">Go to Dashboard</Link>
-              </Button>
-            ) : (
-              <SignInButton mode="modal">
-                <Button size="lg">
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </SignInButton>
-            )}
+            <Button
+              size="lg"
+              onClick={() => setIsComingSoonOpen(true)}
+            >
+              Get Started
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
             <Button size="lg" variant="outline" asChild>
               <Link to="/api-docs">
                 <Code className="mr-2 h-4 w-4" />
@@ -100,6 +92,12 @@ const Index = () => {
           </div>
         </div>
       </div>
+
+      {/* Coming Soon Modal */}
+      <ComingSoonModal
+        isOpen={isComingSoonOpen}
+        onClose={() => setIsComingSoonOpen(false)}
+      />
     </div>
   );
 };
